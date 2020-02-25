@@ -24,7 +24,9 @@ const login = ({ navigation }) => {
     }
   };
 
-  const hasDisabled = () => ((email.length === 0 || password.length === 0 || !isValid.email || !isValid.pass))
+  const hasDisabled = () => ((email.length === 0 || password.length === 0 || Object.keys(isValid)
+    .map(key => isValid[key])
+    .includes(false)));
 
   return (
     <View style={styles.container}>
@@ -79,10 +81,19 @@ const login = ({ navigation }) => {
           />
         </View>
         <View style={styles.buttonWrapper}>
-          <Button loading={loading} state={'primaryDark'} disabled={hasDisabled()} styleBtn={styles.btn}>
+          <Button
+            loading={loading}
+            state={'primaryDark'}
+            disabled={hasDisabled()}
+            styleBtn={styles.btn}
+          >
             Entrar
           </Button>
-          <Button state={'primaryDark'} type={'outline'}>
+          <Button
+            state={'primaryDark'}
+            type={'outline'}
+            onPress={() => navigation.navigate('SignUp')}
+          >
             Cadastre-se
           </Button>
         </View>

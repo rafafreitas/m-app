@@ -1,22 +1,13 @@
-import { colors } from "../../../../constants";
+import { colors } from "~/constants";
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  container: {
-    backgroundColor: colors.background,
-    flex: 1
-  },
   header: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.primary,
-    height: 360,
-    borderBottomLeftRadius: 250,
-    borderBottomRightRadius: 250,
   },
   logo: {
-    maxHeight: 120,
-    marginBottom: 20
+    maxWidth: 130
   },
   title: {
     color: colors.white,
@@ -28,13 +19,11 @@ export default StyleSheet.create({
     color: colors.dark,
     textAlign: 'center',
     fontWeight: 'bold',
-    marginTop: 20,
+    marginTop: 0,
     fontSize: 16,
   },
   body: {
     flex: 1,
-    paddingHorizontal: 20,
-    paddingVertical: 20
   },
   buttonWrapper: {
     flex: 1,

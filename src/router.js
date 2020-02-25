@@ -8,6 +8,7 @@ const Stack = createStackNavigator();
 
 import Loading from './loading';
 import Login from './modules/sign-in/screens/Login';
+import SignUp from './modules/sign-in/screens/SignUp';
 
 export default function Routes() {
   return (
@@ -24,6 +25,10 @@ export default function Routes() {
       <Stack.Screen
         name="Login"
         component={Login}
+      />
+      <Stack.Screen
+        name="SignUp"
+        component={SignUp}
       />
     </Stack.Navigator>
   );

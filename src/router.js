@@ -6,17 +6,21 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 const Stack = createStackNavigator();
 
-import Login from './modules/login';
+import Loading from './loading';
+import Login from './modules/sign-in/screens/Login';
 
 export default function Routes() {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="Loading"
       screenOptions={{
         headerShown: false,
-        headerTintColor: '#FFF'
       }}
     >
+      <Stack.Screen
+        name="Loading"
+        component={Loading}
+      />
       <Stack.Screen
         name="Login"
         component={Login}

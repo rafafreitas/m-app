@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, Keyboard, Image } from 'react-native';
-import { colors } from "~/constants";
+import { colors, MAX_PASS_LENGTH } from "~/constants";
 import Input from "~/components/Input";
 import { emailIsValid } from '~/helpers';
 
 import styles from "./style";
 import Button from "~/components/Button";
 
-const login = () => {
+const login = ({ navigation }) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,8 +16,6 @@ const login = () => {
     email: true,
     pass: true
   });
-
-  const MAX_PASS_LENGTH = 8;
 
   const changePass = text => {
     if (password.length <= MAX_PASS_LENGTH) {

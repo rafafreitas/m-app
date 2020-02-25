@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { View } from 'react-native';
 import { TextField } from 'react-native-material-textfield';
 import { MaskService } from 'react-native-masked-text';
-import {colors} from "../../constants";
+import {colors} from "~/constants";
+import { onlyLetter } from '~/helpers';
+
 
 const Input = (props) => {
 
@@ -17,14 +19,15 @@ const Input = (props) => {
     fontSize,
     labelFontSize,
     affixTextStyle,
-    type,
+    letterOnly,
+    mask,
     onChange,
     ...others
   } = props;
 
-  const [value, setValue] = useState('');
   const [isValid, setIsValid] = useState(true);
   const [showError, setShowError] = useState(false);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     setShowError(!isValid);
@@ -35,31 +38,29 @@ const Input = (props) => {
 
   const onChangeText = text => {
 
-    if (type) {
+    const value = (letterOnly) ? (onlyLetter(text)) : text;
+    inputRef.current.setValue(value);
 
-      const value = MaskService.toMask(type, text);
-      const isValid = MaskService.isValid(type, value);
+    if (mask) {
+      const valueMask = MaskService.toMask(mask, value);
+      setIsValid(MaskService.isValid(mask, valueMask));
 
-      setValue(value);
-      setIsValid(isValid);
-
-      if (onChange) onChange(value, isValid);
+      if (onChange) onChange(valueMask, isValid);
 
     } else {
-      setValue(text);
-
-      if (onChange) onChange(text);
+      if (onChange) onChange(value);
     }
+
   };
 
   return (
     <View>
       <TextField
+        ref={inputRef}
         prefix={prefix}
         labelTextStyle={{ fontWeight: 'bold'}}
         fontSize={13}
         labelFontSize={14}
-        value={value}
         label={placeholder}
         style={[style]}
         editable={editable}
@@ -67,7 +68,6 @@ const Input = (props) => {
         errorColor={colors.danger}
         error={showError ? errorText : null}
         {...others}
-        onChange={null}
       />
     </View>
   );

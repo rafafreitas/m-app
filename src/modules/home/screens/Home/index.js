@@ -14,15 +14,17 @@ const Home = () => {
           <Balance />
           <View style={styles.hr} />
           <AverageResume />
+          <View style={styles.hr} />
+          <View style={styles.buttonWrapper}>
+            <Button type={'outline'}>Inserir movimentação</Button>
+          </View>
         </Card>
         <Collapse>
           <ListTransactions/>
         </Collapse>
         <Products />
       </ScrollView>
-      <View style={styles.buttonWrapper}>
-        <Button>Inserir movimentação</Button>
-      </View>
+
     </SafeAreaView>
   );
 };

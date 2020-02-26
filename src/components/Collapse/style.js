@@ -18,8 +18,8 @@ export default StyleSheet.create({
   action: {
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginTop: 32,
-    backgroundColor: colors.background,
+    marginTop: 22,
+    backgroundColor: colors.white,
     width: '100%'
   },
   btn: {

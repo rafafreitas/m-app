@@ -18,10 +18,10 @@ const Home = () => {
           <View style={styles.buttonWrapper}>
             <Button type={'outline'}>Inserir movimentação</Button>
           </View>
+          <Collapse>
+            <ListTransactions/>
+          </Collapse>
         </Card>
-        <Collapse>
-          <ListTransactions/>
-        </Collapse>
         <Products />
       </ScrollView>
 

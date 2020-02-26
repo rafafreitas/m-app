@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import {View, Text, Keyboard, Image} from 'react-native';
-import { colors } from "~/constants";
-import Input from "~/components/Input";
-import { emailIsValid } from '~/helpers';
-import { MAX_PASS_LENGTH } from '~/constants';
-import Button from "~/components/Button";
-import BasePage from "~/components/BasePage";
+import React, {useState} from 'react';
+import {View, Text, Image} from 'react-native';
+import {colors, MAX_PASS_LENGTH} from '~/constants';
+import Input from '~/components/Input';
+import {emailIsValid} from '~/helpers';
 
-import styles from "./style";
+import Button from '~/components/Button';
+import BasePage from '~/components/BasePage';
 
-const SignUp = ({navigation}) => {
+import styles from './style';
 
+const logo = require('../../../../assets/img/flag_primary_w.png');
+
+const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
   const [isValid, setIsValid] = useState({
     name: true,
     email: true,
@@ -25,25 +25,25 @@ const SignUp = ({navigation}) => {
     if (password.length <= MAX_PASS_LENGTH) setPassword(text);
   };
 
-  const hasDisabled = () => ((name.length === 0 || email.length === 0 || password.length === 0 || Object.keys(isValid)
-    .map(key => isValid[key])
-    .includes(false)));
+  const hasDisabled = () =>
+    name.length === 0 ||
+    email.length === 0 ||
+    password.length === 0 ||
+    Object.keys(isValid)
+      .map(key => isValid[key])
+      .includes(false);
 
   return (
-    <BasePage action={
-      <Button
-        disabled={hasDisabled()} styleBtn={styles.btn}
-        onPress={() => console.log('puff')}
-      >
-        Finalizar cadastro
-      </Button>
-    }>
+    <BasePage
+      action={
+        <Button disabled={hasDisabled()} styleBtn={styles.btn}>
+          Finalizar cadastro
+        </Button>
+      }
+    >
       <View style={styles.body}>
         <View style={styles.header}>
-          <Image
-            style={styles.logo}
-            source={require('../../../../assets/img/flag_primary_w.png')}
-            resizeMode="contain"/>
+          <Image style={styles.logo} source={logo} resizeMode="contain" />
           <Text style={styles.label}>Com nossa conta, seus dados ficam mais protegidos </Text>
         </View>
         <View>
@@ -55,9 +55,9 @@ const SignUp = ({navigation}) => {
             letterOnly
             labelFontSize={16}
             placeholder="Nome"
-            errorText={`Nome inválido`}
+            errorText="Nome inválido"
             value={name}
-            onChange={(text) => {
+            onChange={text => {
               setName(text);
             }}
             valid={isValid.name}
@@ -71,13 +71,13 @@ const SignUp = ({navigation}) => {
             lineWidth={2}
             labelFontSize={16}
             placeholder="E-mail"
-            errorText={`Email inválido`}
+            errorText="Email inválido"
             value={email}
-            onChange={(text) => {
+            onChange={text => {
               setEmail(text);
-              setIsValid({ ...isValid, email: true})
+              setIsValid({...isValid, email: true});
             }}
-            onBlur={() => setIsValid({ ...isValid, email: emailIsValid(email) })}
+            onBlur={() => setIsValid({...isValid, email: emailIsValid(email)})}
             valid={isValid.email}
           />
         </View>
@@ -92,16 +92,15 @@ const SignUp = ({navigation}) => {
             maxLength={8}
             keyboardType="number-pad"
             placeholder="Senha"
-            errorText={`Senha incorreta`}
+            errorText="Senha incorreta"
             value={password}
             onChange={changePass}
             valid={isValid.pass}
           />
         </View>
       </View>
-
     </BasePage>
-  )
+  );
 };
 
 export default SignUp;

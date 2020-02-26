@@ -1,27 +1,24 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {View, Image, StyleSheet, StatusBar, ActivityIndicator} from 'react-native';
-import { colors } from "~/constants";
+import {colors} from '~/constants';
+
+const logo = require('./assets/img/logo_primary.png');
 
 const Loading = ({navigation}) => {
-
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate('Login');
-    }, 2000)
+    }, 2000);
   });
 
   return (
     <View style={styles.background}>
       <StatusBar barStyle="light-content" />
       <View style={styles.container}>
-        <Image
-          style={styles.logo}
-          source={require('./assets/img/logo_primary.png')}
-          resizeMode="contain"
-        />
+        <Image style={styles.logo} source={logo} resizeMode="contain" />
       </View>
       <View style={styles.container}>
-        <ActivityIndicator color={colors.white} size={'large'} />
+        <ActivityIndicator color={colors.white} size="large" />
       </View>
     </View>
   );
@@ -31,7 +28,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: colors.primary,
+    backgroundColor: colors.primary
   },
   container: {
     flexDirection: 'row',

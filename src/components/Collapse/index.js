@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity, LayoutAnimation, Platform, UIManager } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import React, {useState, useEffect} from 'react';
+import {View, TouchableOpacity, LayoutAnimation, Platform, UIManager} from 'react-native';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faChevronDown} from '@fortawesome/free-solid-svg-icons';
 import styles from './style';
-import { colors } from '~/constants';
+import {colors} from '~/constants';
 
-const Collapse = ({ children }) => {
+const Collapse = ({children}) => {
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
@@ -31,11 +31,11 @@ const Collapse = ({ children }) => {
         <View style={styles.content}>{children}</View>
       </View>
       <View style={styles.action}>
-          <TouchableOpacity activeOpacity={0.8} onPress={press}>
-            <View style={styles.btn}>
-              <FontAwesomeIcon icon={ faChevronDown } color={colors.white} />
-            </View>
-          </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.8} onPress={press}>
+          <View style={styles.btn}>
+            <FontAwesomeIcon icon={faChevronDown} color={colors.white} />
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

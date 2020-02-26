@@ -1,9 +1,9 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, View, StatusBar } from 'react-native';
+import {SafeAreaView, ScrollView, View, StatusBar} from 'react-native';
 import style from './style';
 
 const BasePage = props => {
-  const { children, action } = props;
+  const {children, action} = props;
   return (
     <SafeAreaView style={style.container}>
       <StatusBar barStyle="dark-content" />

@@ -1,10 +1,10 @@
-import { colors } from "~/constants";
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
+import {colors} from '~/constants';
 
 export default StyleSheet.create({
   header: {
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   logo: {
     maxWidth: 130
@@ -13,17 +13,17 @@ export default StyleSheet.create({
     color: colors.white,
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 13,
+    fontSize: 13
   },
   label: {
     color: colors.dark,
     textAlign: 'center',
     fontWeight: 'bold',
     marginTop: 0,
-    fontSize: 16,
+    fontSize: 16
   },
   body: {
-    flex: 1,
+    flex: 1
   },
   buttonWrapper: {
     flex: 1,
@@ -32,6 +32,6 @@ export default StyleSheet.create({
     paddingBottom: 20
   },
   btn: {
-    marginBottom: 10,
+    marginBottom: 10
   }
 });

@@ -1,5 +1,5 @@
-import { colors } from "../../../../constants";
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
+import {colors} from '../../../../constants';
 
 export default StyleSheet.create({
   container: {
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     backgroundColor: colors.primary,
     height: 360,
     borderBottomLeftRadius: 250,
-    borderBottomRightRadius: 250,
+    borderBottomRightRadius: 250
   },
   logo: {
     maxHeight: 120,
@@ -22,14 +22,14 @@ export default StyleSheet.create({
     color: colors.white,
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 13,
+    fontSize: 13
   },
   label: {
     color: colors.dark,
     textAlign: 'center',
     fontWeight: 'bold',
     marginTop: 20,
-    fontSize: 16,
+    fontSize: 16
   },
   body: {
     flex: 1,
@@ -43,6 +43,6 @@ export default StyleSheet.create({
     paddingBottom: 20
   },
   btn: {
-    marginBottom: 10,
+    marginBottom: 10
   }
 });

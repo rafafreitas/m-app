@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 
-import { View } from 'react-native';
-import { TextField } from 'react-native-material-textfield';
-import { MaskService } from 'react-native-masked-text';
-import {colors} from "~/constants";
-import { onlyLetter } from '~/helpers';
+import {View} from 'react-native';
+import {TextField} from 'react-native-material-textfield';
+import {MaskService} from 'react-native-masked-text';
+import {colors} from '~/constants';
+import {onlyLetter} from '~/helpers';
 
-
-const Input = (props) => {
-
+const Input = props => {
   const {
     style,
     editable,
@@ -16,9 +14,6 @@ const Input = (props) => {
     errorText,
     valid,
     prefix,
-    fontSize,
-    labelFontSize,
-    affixTextStyle,
     letterOnly,
     mask,
     onChange,
@@ -32,13 +27,12 @@ const Input = (props) => {
   useEffect(() => {
     setShowError(!isValid);
     if (valid !== undefined) {
-      setShowError(!valid)
+      setShowError(!valid);
     }
   }, [isValid, valid]);
 
   const onChangeText = text => {
-
-    const value = (letterOnly) ? (onlyLetter(text)) : text;
+    const value = letterOnly ? onlyLetter(text) : text;
     inputRef.current.setValue(value);
 
     if (mask) {
@@ -46,11 +40,7 @@ const Input = (props) => {
       setIsValid(MaskService.isValid(mask, valueMask));
 
       if (onChange) onChange(valueMask, isValid);
-
-    } else {
-      if (onChange) onChange(value);
-    }
-
+    } else if (onChange) onChange(value);
   };
 
   return (
@@ -58,7 +48,7 @@ const Input = (props) => {
       <TextField
         ref={inputRef}
         prefix={prefix}
-        labelTextStyle={{ fontWeight: 'bold'}}
+        labelTextStyle={{fontWeight: 'bold'}}
         fontSize={13}
         labelFontSize={14}
         label={placeholder}
@@ -71,14 +61,14 @@ const Input = (props) => {
       />
     </View>
   );
-}
+};
 
 Input.defaultProps = {
   editable: true,
   placeholder: '',
   labelFontSize: 14,
   fontSize: 18,
-  prefix: null,
+  prefix: null
 };
 
 export default Input;

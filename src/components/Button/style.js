@@ -1,5 +1,5 @@
-import { palette } from '../../helpers';
-import { alphas, colors } from '../../constants';
+import {palette} from '../../helpers';
+import {alphas, colors} from '../../constants';
 
 const states = palette(paletteUse => ({
   block: {

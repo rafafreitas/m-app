@@ -1,7 +1,7 @@
 import React from 'react';
 import {ScrollView, View, SafeAreaView, StatusBar} from 'react-native';
 import {Collapse, Button, Card} from '~/components';
-import {AverageResume, Balance, Products, Profile} from '../../components';
+import {AverageResume, Balance, Products, Profile, ListTransactions} from '../../components';
 import styles from './style';
 
 const Home = () => {
@@ -15,7 +15,9 @@ const Home = () => {
           <View style={styles.hr} />
           <AverageResume />
         </Card>
-        <Collapse />
+        <Collapse>
+          <ListTransactions/>
+        </Collapse>
         <Products />
       </ScrollView>
       <View style={styles.buttonWrapper}>

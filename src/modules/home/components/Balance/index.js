@@ -7,14 +7,14 @@ const Balance = () => {
 
   return (
     <View>
-      <Text bold style={styles.label}>
+      <Text style={styles.label}>
         Confira sua carteira
       </Text>
       <Text style={[styles.amountPrefix, styles[stateBalance]]}>
         R$
         <Text style={[styles.amountBalance, styles[stateBalance]]}> 20.230,00</Text>
       </Text>
-      <Text bold style={styles.extract}>
+      <Text style={styles.extract}>
         + extrato detalhado
       </Text>
     </View>

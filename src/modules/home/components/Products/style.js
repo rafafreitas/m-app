@@ -2,6 +2,9 @@ import {StyleSheet} from 'react-native';
 import {colors} from '~/constants';
 
 export default StyleSheet.create({
+  container: {
+    marginBottom: 30
+  },
   title: {
     flexDirection: 'row'
   },

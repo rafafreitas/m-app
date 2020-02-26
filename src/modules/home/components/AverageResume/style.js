@@ -8,7 +8,10 @@ export default StyleSheet.create({
   label: {
     fontSize: 14,
     color: colors.dark,
-    marginBottom: 5
+    marginBottom: 5,
+  },
+  bold: {
+    fontWeight: 'bold'
   },
   positive: {
     color: colors.success

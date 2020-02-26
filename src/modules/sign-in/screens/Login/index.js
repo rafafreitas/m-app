@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, Keyboard, Image} from 'react-native';
 import {colors, MAX_PASS_LENGTH} from '~/constants';
-import Input from '~/components/Input';
-import Button from '~/components/Button';
+import { Input, Button } from '~/components';
 import {emailIsValid} from '~/helpers';
 import styles from './style';
 

@@ -3,7 +3,13 @@ import {colors} from '~/constants';
 
 export default StyleSheet.create({
   container: {
-    overflow: 'hidden'
+    overflow: 'hidden',
+    height: 0,
+    paddingTop: 0
+  },
+  expanded: {
+    height: null,
+    paddingTop: 32
   },
   content: {
     flex: 1,

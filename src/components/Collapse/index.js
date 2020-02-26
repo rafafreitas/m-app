@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, TouchableOpacity, LayoutAnimation, Platform, UIManager} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faChevronDown} from '@fortawesome/free-solid-svg-icons';
+import {faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons';
 import styles from './style';
 import {colors} from '~/constants';
 
@@ -22,10 +22,7 @@ const Collapse = ({children}) => {
       <View
         style={[
           styles.container,
-          {
-            height: expanded ? null : 0,
-            paddingTop: expanded ? 32 : 0
-          }
+          styles[expanded && 'expanded']
         ]}
       >
         <View style={styles.content}>{children}</View>
@@ -33,7 +30,7 @@ const Collapse = ({children}) => {
       <View style={styles.action}>
         <TouchableOpacity activeOpacity={0.8} onPress={press}>
           <View style={styles.btn}>
-            <FontAwesomeIcon icon={faChevronDown} color={colors.white} />
+            <FontAwesomeIcon icon={(expanded) ? faChevronUp: faChevronDown} color={colors.white} />
           </View>
         </TouchableOpacity>
       </View>

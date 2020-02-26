@@ -11,7 +11,7 @@ const Products = () => {
     <>
       <View style={styles.title}>
         <FontAwesomeIcon icon={icon} size={40} color={colors.primary} />
-        <Text bold style={styles.label}>
+        <Text style={styles.label}>
           {` ${title}`}
         </Text>
       </View>
@@ -19,17 +19,17 @@ const Products = () => {
         R$
         <Text style={[styles.amountLoans, styles.positive]}>{` ${value}`}</Text>
       </Text>
-      <Text bold style={styles.motive}>
+      <Text style={styles.motive}>
         {motive}
       </Text>
-      <Text bold style={styles.motive}>
+      <Text style={styles.motive}>
         Saiba mais
       </Text>
     </>
   );
 
   return (
-    <>
+    <View style={styles.container}>
       <Card>
         <Product
           icon={faCommentDollar}
@@ -46,7 +46,7 @@ const Products = () => {
           motive="Com franquia reduzida!"
         />
       </Card>
-    </>
+    </View>
   );
 };
 

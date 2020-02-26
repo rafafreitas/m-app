@@ -4,7 +4,7 @@ import {colors} from '~/constants';
 export default StyleSheet.create({
   line: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   hr: {
     borderBottomColor: colors.dark,
@@ -33,5 +33,5 @@ export default StyleSheet.create({
   },
   negative: {
     color: colors.danger
-  },
+  }
 });

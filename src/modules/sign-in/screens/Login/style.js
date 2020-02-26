@@ -4,7 +4,7 @@ import {alphas, colors} from '../../../../constants';
 export default StyleSheet.create({
   imageBackground: {
     width: '100%',
-    height: '100%',
+    height: '100%'
   },
   container: {
     flex: 1,

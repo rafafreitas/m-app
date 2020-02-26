@@ -16,15 +16,14 @@ const Home = () => {
           <AverageResume />
           <View style={styles.hr} />
           <View style={styles.buttonWrapper}>
-            <Button type={'outline'}>Inserir movimentação</Button>
+            <Button type="outline">Inserir movimentação</Button>
           </View>
           <Collapse>
-            <ListTransactions/>
+            <ListTransactions />
           </Collapse>
         </Card>
         <Products />
       </ScrollView>
-
     </SafeAreaView>
   );
 };

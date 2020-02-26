@@ -11,20 +11,14 @@ const Products = () => {
     <>
       <View style={styles.title}>
         <FontAwesomeIcon icon={icon} size={40} color={colors.primary} />
-        <Text style={styles.label}>
-          {` ${title}`}
-        </Text>
+        <Text style={styles.label}>{` ${title}`}</Text>
       </View>
       <Text style={[styles.amountPrefix, styles.positive]}>
         R$
         <Text style={[styles.amountLoans, styles.positive]}>{` ${value}`}</Text>
       </Text>
-      <Text style={styles.motive}>
-        {motive}
-      </Text>
-      <Text style={styles.motive}>
-        Saiba mais
-      </Text>
+      <Text style={styles.motive}>{motive}</Text>
+      <Text style={styles.motive}>Saiba mais</Text>
     </>
   );
 

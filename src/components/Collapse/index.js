@@ -19,18 +19,13 @@ const Collapse = ({children}) => {
 
   return (
     <View>
-      <View
-        style={[
-          styles.container,
-          styles[expanded && 'expanded']
-        ]}
-      >
+      <View style={[styles.container, styles[expanded && 'expanded']]}>
         <View style={styles.content}>{children}</View>
       </View>
       <View style={styles.action}>
         <TouchableOpacity activeOpacity={0.8} onPress={press}>
           <View style={styles.btn}>
-            <FontAwesomeIcon icon={(expanded) ? faChevronUp: faChevronDown} color={colors.white} />
+            <FontAwesomeIcon icon={expanded ? faChevronUp : faChevronDown} color={colors.white} />
           </View>
         </TouchableOpacity>
       </View>

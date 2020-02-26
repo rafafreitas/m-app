@@ -12,8 +12,8 @@ export default StyleSheet.create({
     marginTop: 10
   },
   amountPrefix: {
-    marginTop: 10,
-    marginBottom: 15,
+    marginTop: 5,
+    marginBottom: 10,
     color: colors.dark
   },
   amountLoans: {
@@ -23,7 +23,7 @@ export default StyleSheet.create({
   positive: {
     color: colors.success
   },
-  extract: {
+  motive: {
     color: colors.primary,
     fontWeight: 'bold'
   }

@@ -41,7 +41,8 @@ const SignUp = () => {
       <View style={styles.body}>
         <View style={styles.header}>
           <Image style={styles.logo} source={logo} resizeMode="contain" />
-          <Text style={styles.label}>Com nossa conta, seus dados ficam mais protegidos </Text>
+          <Text style={styles.label}>Crie uma conta para usar nossos serviços.</Text>
+          <Text style={styles.label}>Precisamos de poucas informações</Text>
         </View>
         <View>
           <Input

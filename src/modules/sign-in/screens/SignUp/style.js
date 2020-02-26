@@ -7,7 +7,8 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   logo: {
-    maxWidth: 130
+    maxHeight: 120,
+    marginBottom: 20
   },
   title: {
     color: colors.white,

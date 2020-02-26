@@ -8,7 +8,7 @@ export default StyleSheet.create({
   },
   body: {
     paddingTop: 10,
-    paddingHorizontal: 32,
+    paddingHorizontal: 20,
     flex: 1,
     justifyContent: 'space-between'
   },
@@ -21,7 +21,6 @@ export default StyleSheet.create({
   },
   action: {
     justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 36
+    alignItems: 'center'
   }
 });

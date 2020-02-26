@@ -1,21 +1,24 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../../../constants';
+import {alphas, colors} from '../../../../constants';
 
 export default StyleSheet.create({
+  imageBackground: {
+    width: '100%',
+    height: '100%',
+  },
   container: {
-    backgroundColor: colors.background,
-    flex: 1
+    flex: 1,
+    backgroundColor: `${colors.dark}${alphas.a90}`
   },
   header: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.primary,
     height: 360,
     borderBottomLeftRadius: 250,
     borderBottomRightRadius: 250
   },
   logo: {
-    maxHeight: 120,
+    maxHeight: 130,
     marginBottom: 20
   },
   title: {

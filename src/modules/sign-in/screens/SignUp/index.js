@@ -6,7 +6,7 @@ import {emailIsValid} from '~/helpers';
 
 import styles from './style';
 
-const logo = require('../../../../assets/img/flag_primary_w.png');
+const logo = require('~/assets/logo/flag_primary_w.png');
 
 const SignUp = () => {
   const [name, setName] = useState('');

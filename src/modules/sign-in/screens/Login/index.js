@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {View, Text, Keyboard, Image} from 'react-native';
+import {View, Text, Keyboard, Image, ImageBackground} from 'react-native';
 import {colors, MAX_PASS_LENGTH} from '~/constants';
 import { Input, Button } from '~/components';
 import {emailIsValid} from '~/helpers';
 import styles from './style';
 
-const logo = require('../../../../assets/img/logo_primary.png');
+const back = require('~/assets/img/back.jpg');
+const logo = require('~/assets/logo/logo_primary.png');
 
 const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -31,69 +32,69 @@ const Login = ({navigation}) => {
       .includes(false);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View>
-          <Image style={styles.logo} source={logo} resizeMode="contain" />
+    <ImageBackground source={back} style={styles.imageBackground}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View>
+            <Image style={styles.logo} source={logo} resizeMode="contain" />
+          </View>
+          <View>
+            <Text style={styles.title}>Nós cuidamos de tudo pra você.</Text>
+          </View>
         </View>
-        <View>
-          <Text style={styles.title}>Lorem ipsum dolor sit amet, onsectetur adipis </Text>
+        <View style={styles.body}>
+          <View style={styles.inputs}>
+            <Input
+              baseColor={colors.white}
+              textColor={colors.white}
+              tintColor={colors.white}
+              lineWidth={2}
+              labelFontSize={16}
+              placeholder="E-mail"
+              errorText="Email inválido"
+              value={email}
+              onChange={text => {
+                setEmail(text);
+                setIsValid({...isValid, email: true});
+              }}
+              onBlur={() => setIsValid({...isValid, email: emailIsValid(email)})}
+              valid={isValid.email}
+            />
+          </View>
+          <View style={styles.inputs}>
+            <Input
+              baseColor={colors.white}
+              textColor={colors.white}
+              tintColor={colors.white}
+              lineWidth={2}
+              labelFontSize={16}
+              secureTextEntry
+              maxLength={8}
+              keyboardType="number-pad"
+              placeholder="Senha"
+              errorText="Senha incorreta"
+              value={password}
+              onChange={changePass}
+              valid={isValid.pass}
+            />
+          </View>
+          <View style={styles.buttonWrapper}>
+            <Button
+              loading={loading}
+              state="primaryDark"
+              disabled={hasDisabled()}
+              styleBtn={styles.btn}
+              onPress={() => navigation.navigate('Home')}
+            >
+              Entrar
+            </Button>
+            <Button state="white" type="outline" onPress={() => navigation.navigate('SignUp')}>
+              Cadastre-se
+            </Button>
+          </View>
         </View>
       </View>
-      <View style={styles.body}>
-        <View>
-          <Text style={styles.label}>Informe seus dados de acesso!</Text>
-        </View>
-        <View>
-          <Input
-            baseColor={colors.grey}
-            textColor={colors.dark}
-            tintColor={colors.primary}
-            lineWidth={2}
-            labelFontSize={16}
-            placeholder="E-mail"
-            errorText="Email inválido"
-            value={email}
-            onChange={text => {
-              setEmail(text);
-              setIsValid({...isValid, email: true});
-            }}
-            onBlur={() => setIsValid({...isValid, email: emailIsValid(email)})}
-            valid={isValid.email}
-          />
-        </View>
-        <View>
-          <Input
-            baseColor={colors.grey}
-            textColor={colors.dark}
-            tintColor={colors.primary}
-            lineWidth={2}
-            labelFontSize={16}
-            secureTextEntry
-            maxLength={8}
-            keyboardType="number-pad"
-            placeholder="Senha"
-            errorText="Senha incorreta"
-            value={password}
-            onChange={changePass}
-            valid={isValid.pass}
-          />
-        </View>
-        <View style={styles.buttonWrapper}>
-          <Button
-            loading={loading}
-            state="primaryDark"
-            disabled={hasDisabled()}
-            styleBtn={styles.btn}
-          >
-            Entrar
-          </Button>
-          <Button state="primaryDark" type="outline" onPress={() => navigation.navigate('SignUp')}>
-            Cadastre-se
-          </Button>
-        </View>
-      </View>
-    </View>
+    </ImageBackground>
   );
 };
 

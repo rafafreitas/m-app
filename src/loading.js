@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {View, Image, StyleSheet, StatusBar, ActivityIndicator} from 'react-native';
 import {colors} from '~/constants';
 
-const logo = require('./assets/img/logo_primary.png');
+const logo = require('./assets/logo/logo_primary.png');
 
 const Loading = ({navigation}) => {
   useEffect(() => {

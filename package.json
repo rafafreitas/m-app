@@ -17,6 +17,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-native-fontawesome": "^0.2.2",
     "@react-native-community/masked-view": "^0.1.6",
     "@react-navigation/drawer": "^5.0.6",
     "@react-navigation/native": "^5.0.6",
@@ -30,7 +33,8 @@
     "react-native-material-textfield": "^0.16.1",
     "react-native-reanimated": "^1.7.0",
     "react-native-safe-area-context": "^0.7.3",
-    "react-native-screens": "^2.0.0-beta.10"
+    "react-native-screens": "^2.0.0-beta.10",
+    "react-native-svg": "^11.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

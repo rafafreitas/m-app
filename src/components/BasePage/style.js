@@ -17,6 +17,7 @@ export default StyleSheet.create({
     marginTop: 10
   },
   children: {
+    flex: 1,
     paddingBottom: 20
   },
   viewTitle: {

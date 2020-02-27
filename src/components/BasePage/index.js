@@ -6,8 +6,16 @@ import NavBar from '../NavBar';
 import style from './style';
 
 const BasePage = props => {
-  const {children, action, title} = props;
+  const {children, action, title, hasScroll} = props;
   const navigation = useNavigation();
+
+  const Child = () => (
+      hasScroll ? (<ScrollView alwaysBounceVertical={false} showsVerticalScrollIndicator={false}>
+        <View style={style.children}>{children}</View>
+      </ScrollView>) : <View style={style.children}>{children}</View>
+
+  );
+
   return (
     <SafeAreaView style={style.container}>
       <StatusBar barStyle="dark-content" />
@@ -20,9 +28,7 @@ const BasePage = props => {
       />
       <View style={style.body}>
         <Text style={style.title}>{title}</Text>
-        <ScrollView alwaysBounceVertical={false} showsVerticalScrollIndicator={false}>
-          <View style={style.children}>{children}</View>
-        </ScrollView>
+        <Child/>
         <View style={style.action}>{action}</View>
       </View>
     </SafeAreaView>

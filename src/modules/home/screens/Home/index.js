@@ -16,7 +16,7 @@ const Home = ({navigation}) => {
           <AverageResume />
           <View style={styles.hr} />
           <View style={styles.buttonWrapper}>
-            <Button type="outline">Inserir movimentação</Button>
+            <Button type="outline" onPress={() => navigation.navigate('CreateTransaction')}>Inserir movimentação</Button>
           </View>
           <Collapse>
             <ListTransactions />

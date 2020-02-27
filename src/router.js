@@ -8,6 +8,7 @@ import SignUp from './modules/sign-in/screens/SignUp';
 import Home from './modules/home/screens/Home';
 import Profile from './modules/home/screens/Profile';
 import EditProfile from './modules/home/screens/EditProfile';
+import CreateTransaction from './modules/transactions/screens/Create';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,7 @@ export default () => {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="EditProfile" component={EditProfile} />
+      <Stack.Screen name="CreateTransaction" component={CreateTransaction} />
     </Stack.Navigator>
   );
 };

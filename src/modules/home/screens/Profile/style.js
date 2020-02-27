@@ -4,13 +4,13 @@ import {colors} from '~/constants';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: colors.background
   },
   header: {
     backgroundColor: colors.primary,
     justifyContent: 'flex-end',
     padding: 20,
-    height: 170,
+    height: 170
   },
   title: {
     color: colors.white,
@@ -19,13 +19,13 @@ export default StyleSheet.create({
   },
   subtitle: {
     color: colors.white,
-    fontSize: 18,
+    fontSize: 18
   },
   bold: {
     fontWeight: 'bold'
   },
   list: {
-    marginTop: 45,
+    marginTop: 45
   },
   buttonWrapper: {
     alignSelf: 'center',

@@ -9,7 +9,7 @@ const Home = ({navigation}) => {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <ScrollView style={styles.content}>
-        <Profile press={() => navigation.navigate('Profile')}/>
+        <Profile press={() => navigation.navigate('Profile')} />
         <Card>
           <Balance />
           <View style={styles.hr} />

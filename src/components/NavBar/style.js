@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     backgroundColor: colors.transparent,
-    paddingLeft: 20,
+    paddingLeft: 20
   },
   nav: {
     backgroundColor: colors.primary,
@@ -18,5 +18,5 @@ export default StyleSheet.create({
     marginRight: 10,
     justifyContent: 'center',
     alignItems: 'center'
-  },
+  }
 });

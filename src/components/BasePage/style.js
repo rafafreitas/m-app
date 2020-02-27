@@ -7,7 +7,6 @@ export default StyleSheet.create({
     backgroundColor: colors.background
   },
   body: {
-    paddingTop: 10,
     paddingHorizontal: 20,
     flex: 1,
     justifyContent: 'space-between'

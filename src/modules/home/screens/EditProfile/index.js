@@ -1,21 +1,20 @@
 import React, {useState} from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text} from 'react-native';
 import {colors, MAX_PASS_LENGTH} from '~/constants';
 import {Input, Button, BasePage} from '~/components';
 import {emailIsValid} from '~/helpers';
 
 import styles from './style';
 
-const logo = require('~/assets/logo/flag_primary_w.png');
-
-const SignUp = () => {
+const EditProfile = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState({
     name: true,
     email: true,
-    pass: true
+    pass: true,
+    cpf: true
   });
 
   const changePass = text => {
@@ -34,15 +33,13 @@ const SignUp = () => {
     <BasePage
       action={
         <Button disabled={hasDisabled()} styleBtn={styles.btn}>
-          Finalizar cadastro
+          Atualiza dados
         </Button>
       }
     >
       <View style={styles.body}>
         <View style={styles.header}>
-          <Image style={styles.logo} source={logo} resizeMode="contain" />
-          <Text style={styles.label}>Crie uma conta para usar nossos serviços.</Text>
-          <Text style={styles.label}>Precisamos de poucas informações</Text>
+          <Text style={styles.label}>Matenha seus dados sempre atualizados.</Text>
         </View>
         <View>
           <Input
@@ -83,14 +80,34 @@ const SignUp = () => {
             textColor={colors.dark}
             tintColor={colors.primary}
             lineWidth={2}
-            secureTextEntry
-            maxLength={8}
-            keyboardType="number-pad"
-            placeholder="Senha"
-            errorText="Senha incorreta"
-            value={password}
-            onChange={changePass}
-            valid={isValid.pass}
+            placeholder="Cpf"
+            errorText="CPF inválido"
+            value={email}
+            valid={isValid.cpf}
+          />
+        </View>
+        <View>
+          <Input
+            baseColor={colors.grey}
+            textColor={colors.dark}
+            tintColor={colors.primary}
+            lineWidth={2}
+            placeholder="Data de nascimento"
+            errorText="Data inválida"
+            value={email}
+            valid={isValid.birth}
+          />
+        </View>
+        <View>
+          <Input
+            baseColor={colors.grey}
+            textColor={colors.dark}
+            tintColor={colors.primary}
+            lineWidth={2}
+            placeholder="CEP"
+            errorText="Data inválida"
+            value={email}
+            valid={isValid.birth}
           />
         </View>
       </View>
@@ -98,4 +115,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default EditProfile;

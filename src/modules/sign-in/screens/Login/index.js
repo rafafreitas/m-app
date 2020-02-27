@@ -49,7 +49,6 @@ const Login = ({navigation}) => {
               textColor={colors.white}
               tintColor={colors.white}
               lineWidth={2}
-              labelFontSize={16}
               placeholder="E-mail"
               errorText="Email inválido"
               value={email}
@@ -67,7 +66,6 @@ const Login = ({navigation}) => {
               textColor={colors.white}
               tintColor={colors.white}
               lineWidth={2}
-              labelFontSize={16}
               secureTextEntry
               maxLength={8}
               keyboardType="number-pad"

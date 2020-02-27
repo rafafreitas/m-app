@@ -4,12 +4,12 @@ import {Collapse, Button, Card} from '~/components';
 import {AverageResume, Balance, Products, Profile, ListTransactions} from '../../components';
 import styles from './style';
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <ScrollView style={styles.content}>
-        <Profile />
+        <Profile press={() => navigation.navigate('Profile')}/>
         <Card>
           <Balance />
           <View style={styles.hr} />

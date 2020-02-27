@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faCommentDollar, faCarCrash} from '@fortawesome/free-solid-svg-icons';
 import styles from './style';
 import {colors} from '~/constants';
-import {Card} from '../../../../components';
+import {Card} from '~/components';
 
 const Products = () => {
   const Product = ({icon, title, value, motive}) => (

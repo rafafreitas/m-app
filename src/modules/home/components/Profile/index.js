@@ -5,10 +5,10 @@ import {faUserEdit} from '@fortawesome/free-solid-svg-icons';
 import {colors} from '~/constants';
 import styles from './style';
 
-const Profile = () => {
+const Profile = ({press}) => {
   return (
     <View style={styles.profile}>
-      <TouchableOpacity activeOpacity={0.8}>
+      <TouchableOpacity activeOpacity={0.8} onPress={press}>
         <View style={styles.profileBth}>
           <FontAwesomeIcon icon={faUserEdit} color={colors.white} />
         </View>

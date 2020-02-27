@@ -11,6 +11,11 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between'
   },
+  title: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    marginTop: 10
+  },
   children: {
     paddingBottom: 20
   },

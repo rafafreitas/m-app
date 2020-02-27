@@ -1,12 +1,12 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, View, StatusBar} from 'react-native';
+import {SafeAreaView, ScrollView, View, Text, StatusBar} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import NavBar from '../NavBar';
 
 import style from './style';
 
 const BasePage = props => {
-  const {children, action} = props;
+  const {children, action, title} = props;
   const navigation = useNavigation();
   return (
     <SafeAreaView style={style.container}>
@@ -19,6 +19,7 @@ const BasePage = props => {
         }}
       />
       <View style={style.body}>
+        <Text style={style.title}>{title}</Text>
         <ScrollView alwaysBounceVertical={false} showsVerticalScrollIndicator={false}>
           <View style={style.children}>{children}</View>
         </ScrollView>

@@ -10,7 +10,6 @@ export default StyleSheet.create({
   label: {
     color: colors.dark,
     textAlign: 'center',
-    fontWeight: 'bold',
     marginTop: 0,
     fontSize: 16
   },

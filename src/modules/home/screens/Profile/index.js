@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StatusBar, Text, FlatList} from 'react-native';
-import {Button} from '~/components';
+import {Button, NavBar} from '~/components';
 import styles from './style';
 
 const Profile = ({navigation}) => {
@@ -25,6 +25,7 @@ const Profile = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
+      <NavBar state={'white'} icon={'primary'} press={() => navigation.pop()}/>
       <View style={styles.header}>
         <Text style={[styles.title, styles.bold]}>
           Rafael Freitas

@@ -26,12 +26,6 @@ export default StyleSheet.create({
   body: {
     flex: 1
   },
-  buttonWrapper: {
-    flex: 1,
-    alignSelf: 'center',
-    justifyContent: 'flex-end',
-    paddingBottom: 20
-  },
   btn: {
     marginBottom: 10
   }

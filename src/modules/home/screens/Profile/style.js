@@ -10,7 +10,7 @@ export default StyleSheet.create({
     backgroundColor: colors.primary,
     justifyContent: 'flex-end',
     padding: 20,
-    height: 250,
+    height: 170,
   },
   title: {
     color: colors.white,

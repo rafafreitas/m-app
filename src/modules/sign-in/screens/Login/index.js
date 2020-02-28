@@ -1,8 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {View, Text, Keyboard, Image, ImageBackground} from 'react-native';
-import {colors, MAX_PASS_LENGTH} from '~/constants';
+import {useDispatch} from 'react-redux';
+import FlashMessage from 'react-native-flash-message';
+import {colors, MAX_PASS_LENGTH, codesHttp, messagesHttpError} from '~/constants';
 import {Input, Button} from '~/components';
 import {emailIsValid} from '~/helpers';
+import {authUser} from '~/services/auth';
+import {setSession} from '~/store/modules/auth/actions';
 import styles from './style';
 
 const back = require('~/assets/img/back.jpg');
@@ -17,10 +21,39 @@ const Login = ({navigation}) => {
     pass: true
   });
 
+  const flashRef = useRef(null);
+  const dispatch = useDispatch();
+
   const changePass = text => {
     if (password.length <= MAX_PASS_LENGTH) {
       setPassword(text);
       if (text.length === MAX_PASS_LENGTH) Keyboard.dismiss();
+    }
+  };
+
+  const login = async () => {
+    setLoading(true);
+    try {
+      const {data, headers} = await authUser({
+        email,
+        pass: password
+      });
+
+      dispatch(setSession(headers.authorization, data));
+      navigation.navigate('Home');
+    } catch (e) {
+      const {status, data} = e.response;
+
+      const msg =
+        status !== codesHttp.INTERNAL_SERVER_ERROR ? data.result : messagesHttpError.DEFAULT;
+
+      flashRef.current.showMessage({
+        message: 'Atenção!',
+        description: msg,
+        type: 'warning'
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -82,7 +115,7 @@ const Login = ({navigation}) => {
               state="primaryDark"
               disabled={hasDisabled()}
               styleBtn={styles.btn}
-              onPress={() => navigation.navigate('Home')}
+              onPress={login}
             >
               Entrar
             </Button>
@@ -92,6 +125,7 @@ const Login = ({navigation}) => {
           </View>
         </View>
       </View>
+      <FlashMessage ref={flashRef} position="top" />
     </ImageBackground>
   );
 };

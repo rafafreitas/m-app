@@ -4,10 +4,10 @@ import { combineReducers, createStore } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from '@react-native-community/async-storage';
 
-import Auth from './modules/Auth/reducers';
+import auth from './modules/auth/reducers';
 
 const reducers = combineReducers({
-  Auth,
+  auth,
 });
 
 const persistConfig = {

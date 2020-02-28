@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './style';
+import {useNavigation} from "@react-navigation/native";
 
 const Balance = () => {
   const [stateBalance, setStateBalance] = useState('positive');
+  const navigation = useNavigation();
 
   return (
     <View>
@@ -12,7 +14,9 @@ const Balance = () => {
         R$
         <Text style={[styles.amountBalance, styles[stateBalance]]}> 20.230,00</Text>
       </Text>
-      <Text style={styles.extract}>+ extrato detalhado</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('ListTransaction')}>
+        <Text style={styles.extract}>+ extrato detalhado</Text>
+      </TouchableOpacity>
     </View>
   );
 };

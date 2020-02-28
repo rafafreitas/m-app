@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 
 import styles from './style';
 
-const TabChoice = ({ chosen = () => {} }) => {
+const TabChoice = ({chosen = () => {}}) => {
   const [choice, setChoice] = useState(null);
 
   const hasChosen = id => {

@@ -4,7 +4,7 @@ import {colors} from '~/constants';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 10,
+    paddingTop: 10
   },
   line: {
     flexDirection: 'row',

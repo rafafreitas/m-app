@@ -2,7 +2,7 @@ export const codesHttp = {
   BAD_REQUEST: 400,
   FORBIDDEN: 403,
   INTERNAL_SERVER_ERROR: 500,
-  UNAUTHORIZED: 401,
+  UNAUTHORIZED: 401
 };
 
 export const messagesHttpError = {

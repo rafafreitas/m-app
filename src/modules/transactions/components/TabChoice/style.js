@@ -31,7 +31,7 @@ export default StyleSheet.create({
   },
   labelActive: {
     textAlign: 'center',
-    color: colors.white,
+    color: colors.white
   },
   labelOutline: {
     textAlign: 'center',

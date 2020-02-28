@@ -31,7 +31,7 @@ const EditProfile = () => {
 
   return (
     <BasePage
-      title={'Editar Perfil'}
+      title="Editar Perfil"
       action={
         <Button disabled={hasDisabled()} styleBtn={styles.btn}>
           Atualiza dados

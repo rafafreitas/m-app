@@ -32,7 +32,7 @@ const SignUp = () => {
 
   return (
     <BasePage
-      title={'Cadastro'}
+      title="Cadastro"
       action={
         <Button disabled={hasDisabled()} styleBtn={styles.btn}>
           Finalizar cadastro

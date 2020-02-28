@@ -9,12 +9,14 @@ const BasePage = props => {
   const {children, action, title, hasScroll} = props;
   const navigation = useNavigation();
 
-  const Child = () => (
-      hasScroll ? (<ScrollView alwaysBounceVertical={false} showsVerticalScrollIndicator={false}>
+  const Child = () =>
+    hasScroll ? (
+      <ScrollView alwaysBounceVertical={false} showsVerticalScrollIndicator={false}>
         <View style={style.children}>{children}</View>
-      </ScrollView>) : <View style={style.children}>{children}</View>
-
-  );
+      </ScrollView>
+    ) : (
+      <View style={style.children}>{children}</View>
+    );
 
   return (
     <SafeAreaView style={style.container}>
@@ -28,7 +30,7 @@ const BasePage = props => {
       />
       <View style={style.body}>
         <Text style={style.title}>{title}</Text>
-        <Child/>
+        <Child />
         <View style={style.action}>{action}</View>
       </View>
     </SafeAreaView>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, TouchableWithoutFeedback, Text } from 'react-native';
+import {View, TouchableWithoutFeedback, Text} from 'react-native';
 import styles from './style';
-import { colors } from '~/constants';
+import {colors} from '~/constants';
 
-const Tabs = ({ activeTab, tabs, onTabPress }) => {
+const Tabs = ({activeTab, tabs, onTabPress}) => {
   return (
     <View style={styles.container}>
       {tabs.map(item => {
@@ -13,14 +13,12 @@ const Tabs = ({ activeTab, tabs, onTabPress }) => {
             key={item.id}
             style={[
               styles.tabWrapper,
-              { borderBottomColor: isActive ? colors.primary : colors.divider }
+              {borderBottomColor: isActive ? colors.primary : colors.divider}
             ]}
           >
             <TouchableWithoutFeedback onPress={() => onTabPress(item.id)}>
               <View style={styles.titleWrapper}>
-                <Text
-                  style={[styles.tabTitle, { color: isActive ? colors.primary : colors.grey }]}
-                >
+                <Text style={[styles.tabTitle, {color: isActive ? colors.primary : colors.grey}]}>
                   {item.title}
                 </Text>
               </View>

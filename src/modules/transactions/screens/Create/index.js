@@ -4,7 +4,7 @@ import {colors} from '~/constants';
 import {Input, Button, BasePage} from '~/components';
 
 import styles from './style';
-import TabChoice from "../../components/TabChoice";
+import TabChoice from '../../components/TabChoice';
 
 const Create = () => {
   const [title, setTitle] = useState('');
@@ -26,7 +26,7 @@ const Create = () => {
 
   return (
     <BasePage
-      title={'Dados da Transação'}
+      title="Dados da Transação"
       action={
         <Button disabled={hasDisabled()} styleBtn={styles.btn}>
           Inserir
@@ -35,9 +35,9 @@ const Create = () => {
     >
       <View style={styles.body}>
         <View>
-          <TabChoice chosen={id => setType(id)}/>
+          <TabChoice chosen={id => setType(id)} />
         </View>
-        { type && (
+        {type && (
           <>
             <View>
               <Input

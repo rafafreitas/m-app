@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import styles from './style';
-import {useNavigation} from "@react-navigation/native";
 
 const Balance = () => {
   const [stateBalance, setStateBalance] = useState('positive');

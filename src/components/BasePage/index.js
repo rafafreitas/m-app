@@ -6,7 +6,7 @@ import NavBar from '../NavBar';
 import style from './style';
 
 const BasePage = props => {
-  const {children, action, title} = props;
+  const {children, action, title, flashMsg} = props;
   const navigation = useNavigation();
 
   return (
@@ -21,9 +21,10 @@ const BasePage = props => {
       />
       <View style={style.body}>
         <Text style={style.title}>{title}</Text>
-          <View style={style.children}>{children}</View>
+        <View style={style.children}>{children}</View>
         <View style={style.action}>{action}</View>
       </View>
+      {flashMsg}
     </SafeAreaView>
   );
 };

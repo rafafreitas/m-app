@@ -1,25 +1,63 @@
-import React, {useState} from 'react';
-import {View, Text, Image} from 'react-native';
-import {colors, MAX_PASS_LENGTH} from '~/constants';
+import React, {useState, useRef} from 'react';
+import {View, Text, Image, Keyboard} from 'react-native';
+import {useDispatch} from 'react-redux';
+import FlashMessage from 'react-native-flash-message';
+import {setSession} from '~/store/modules/auth/actions';
+import {colors, MAX_PASS_LENGTH, codesHttp, messagesHttpError} from '~/constants';
 import {Input, Button, BasePage} from '~/components';
+import {insertClient} from '~/services/auth';
 import {emailIsValid} from '~/helpers';
 
 import styles from './style';
 
 const logo = require('~/assets/logo/flag_primary_w.png');
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const [isValid, setIsValid] = useState({
     name: true,
     email: true,
     pass: true
   });
 
+  const flashRef = useRef(null);
+  const dispatch = useDispatch();
+
   const changePass = text => {
-    if (password.length <= MAX_PASS_LENGTH) setPassword(text);
+    if (password.length <= MAX_PASS_LENGTH) {
+      setPassword(text);
+      if (text.length === MAX_PASS_LENGTH) Keyboard.dismiss();
+    }
+  };
+
+  const insertUser = async () => {
+    setLoading(true);
+    try {
+      const {data, headers} = await insertClient({
+        name,
+        email,
+        pass: password
+      });
+
+      dispatch(setSession(headers.authorization, data));
+      navigation.navigate('Home');
+    } catch (e) {
+      const {status, data} = e.response;
+
+      const msg =
+        status !== codesHttp.INTERNAL_SERVER_ERROR ? data.result : messagesHttpError.DEFAULT;
+
+      flashRef.current.showMessage({
+        message: 'Atenção!',
+        description: msg,
+        type: 'warning'
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const hasDisabled = () =>
@@ -34,10 +72,16 @@ const SignUp = () => {
     <BasePage
       title="Cadastro"
       action={
-        <Button disabled={hasDisabled()} styleBtn={styles.btn}>
+        <Button
+          onPress={insertUser}
+          disabled={hasDisabled()}
+          styleBtn={styles.btn}
+          loading={loading}
+        >
           Finalizar cadastro
         </Button>
       }
+      flashMsg={<FlashMessage ref={flashRef} position="top" />}
     >
       <View style={styles.body}>
         <View style={styles.header}>
@@ -51,7 +95,6 @@ const SignUp = () => {
             textColor={colors.dark}
             tintColor={colors.primary}
             lineWidth={2}
-            letterOnly
             placeholder="Nome"
             errorText="Nome inválido"
             value={name}

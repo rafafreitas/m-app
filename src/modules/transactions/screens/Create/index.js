@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Switch} from 'react-native';
+import {View} from 'react-native';
 import {colors} from '~/constants';
 import {Input, Button, BasePage} from '~/components';
 

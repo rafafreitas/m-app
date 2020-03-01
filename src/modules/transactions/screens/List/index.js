@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import styles from './style';
 import {BasePage, Tabs} from '~/components';
 
-const List = ({navigation}) => {
+const List = () => {
   const [activeTab, setActiveTab] = useState(2);
 
   const tabs = [{id: 1, title: 'Anteriores'}, {id: 2, title: 'Hoje'}, {id: 3, title: 'Futuras'}];

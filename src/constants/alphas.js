@@ -1,4 +1,4 @@
-export const alphas = {
+const alphas = {
   a10: '1A',
   a20: '33',
   a25: '40',
@@ -11,3 +11,5 @@ export const alphas = {
   a85: 'D9',
   a90: 'E6'
 };
+
+export default alphas;

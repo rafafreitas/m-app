@@ -8,7 +8,7 @@ const Profile = ({navigation}) => {
     {id: '1', title: 'Editar perfil', func: () => navigation.navigate('EditProfile')},
     {id: '2', title: 'Alterar senha', func: () => navigation.navigate('ChangePassword')},
     {id: '3', title: 'Desativar conta', func: () => navigation.navigate('DeleteAccount')},
-    {id: '4', title: 'Sair', func: () => console.log('Deslogar')}
+    {id: '4', title: 'Sair', func: () => {}}
   ];
 
   const Item = ({title, func}) => {

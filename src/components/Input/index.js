@@ -48,9 +48,8 @@ const Input = props => {
       <TextField
         ref={inputRef}
         prefix={prefix}
-        labelTextStyle={{fontWeight: 'bold'}}
-        fontSize={13}
-        labelFontSize={14}
+        fontSize={15}
+        labelFontSize={15}
         label={placeholder}
         style={[style]}
         editable={editable}
@@ -66,8 +65,6 @@ const Input = props => {
 Input.defaultProps = {
   editable: true,
   placeholder: '',
-  labelFontSize: 14,
-  fontSize: 18,
   prefix: null
 };
 

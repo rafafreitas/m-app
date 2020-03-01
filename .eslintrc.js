@@ -13,6 +13,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'react/prop-types': 'off',
+    'react/default-props-match-prop-types': 'off',
     'comma-dangle': 'off',
     'prettier/prettier': ['error'],
     'no-console': ['error', { allow: ['tron'] }],

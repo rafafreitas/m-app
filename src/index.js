@@ -7,7 +7,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 import {store, persist} from './store';
 import Routes from './router';
 
-export default (App = () => (
+export default () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persist}>
       <NavigationContainer>
@@ -16,4 +16,4 @@ export default (App = () => (
       </NavigationContainer>
     </PersistGate>
   </Provider>
-));
+);

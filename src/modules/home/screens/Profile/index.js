@@ -1,14 +1,20 @@
 import React from 'react';
 import {View, StatusBar, Text, FlatList} from 'react-native';
+import {useDispatch} from 'react-redux';
+import {logoff} from '~/store/modules/auth/actions';
+
 import {Button, NavBar} from '~/components';
 import styles from './style';
 
 const Profile = ({navigation}) => {
+
+  const dispatch = useDispatch();
+
   const data = [
     {id: '1', title: 'Editar perfil', func: () => navigation.navigate('EditProfile')},
     {id: '2', title: 'Alterar senha', func: () => navigation.navigate('ChangePassword')},
     {id: '3', title: 'Desativar conta', func: () => navigation.navigate('DeleteAccount')},
-    {id: '4', title: 'Sair', func: () => {}}
+    {id: '4', title: 'Sair', func: () => dispatch(logoff())}
   ];
 
   const Item = ({title, func}) => {

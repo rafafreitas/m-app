@@ -40,7 +40,6 @@ const Login = ({navigation}) => {
       });
 
       dispatch(setSession(headers.authorization, data));
-      navigation.navigate('Home');
     } catch (e) {
       const {status, data} = e.response;
 

@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useCallback} from 'react';
 import {View, Text, ActivityIndicator} from 'react-native';
+import {useFocusEffect} from '@react-navigation/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faArrowUp, faArrowDown} from '@fortawesome/free-solid-svg-icons';
 import {TRANSACTIONS_TYPES, codesHttp, messagesHttpError, colors} from '~/constants';
@@ -13,9 +14,11 @@ const ListTransactions = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    list().finally(() => setLoading(false));
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      list().finally(() => setLoading(false));
+    }, [])
+  );
 
   const list = async () => {
     setLoading(true);

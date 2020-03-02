@@ -1,7 +1,7 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import {View, Text, Image, Keyboard} from 'react-native';
 import {useDispatch} from 'react-redux';
-import FlashMessage from 'react-native-flash-message';
+import {showMessage} from 'react-native-flash-message';
 import {setSession} from '~/store/modules/auth/actions';
 import {colors, MAX_PASS_LENGTH, codesHttp, messagesHttpError} from '~/constants';
 import {Input, Button, BasePage} from '~/components';
@@ -23,7 +23,6 @@ const SignUp = ({navigation}) => {
     pass: true
   });
 
-  const flashRef = useRef(null);
   const dispatch = useDispatch();
 
   const changePass = text => {
@@ -43,6 +42,12 @@ const SignUp = ({navigation}) => {
       });
 
       dispatch(setSession(headers.authorization, data));
+      showMessage({
+        message: 'Bem vindo!',
+        description: 'Bem vindo ao seu controle de finanças favorito!',
+        type: 'success'
+      });
+
       navigation.navigate('Home');
     } catch (e) {
       const {status, data} = e.response;
@@ -50,7 +55,7 @@ const SignUp = ({navigation}) => {
       const msg =
         status !== codesHttp.INTERNAL_SERVER_ERROR ? data.result : messagesHttpError.DEFAULT;
 
-      flashRef.current.showMessage({
+      showMessage({
         message: 'Atenção!',
         description: msg,
         type: 'warning'
@@ -81,7 +86,6 @@ const SignUp = ({navigation}) => {
           Finalizar cadastro
         </Button>
       }
-      flashMsg={<FlashMessage ref={flashRef} position="top" />}
     >
       <View style={styles.body}>
         <View style={styles.header}>

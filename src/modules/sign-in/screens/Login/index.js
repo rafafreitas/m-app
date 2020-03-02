@@ -1,7 +1,7 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import {View, Text, Keyboard, Image, ImageBackground} from 'react-native';
 import {useDispatch} from 'react-redux';
-import FlashMessage from 'react-native-flash-message';
+import {showMessage} from 'react-native-flash-message';
 import {colors, MAX_PASS_LENGTH, codesHttp, messagesHttpError} from '~/constants';
 import {Input, Button} from '~/components';
 import {emailIsValid} from '~/helpers';
@@ -21,7 +21,6 @@ const Login = ({navigation}) => {
     pass: true
   });
 
-  const flashRef = useRef(null);
   const dispatch = useDispatch();
 
   const changePass = text => {
@@ -46,7 +45,7 @@ const Login = ({navigation}) => {
       const msg =
         status !== codesHttp.INTERNAL_SERVER_ERROR ? data.result : messagesHttpError.DEFAULT;
 
-      flashRef.current.showMessage({
+      showMessage({
         message: 'Atenção!',
         description: msg,
         type: 'warning'
@@ -124,7 +123,6 @@ const Login = ({navigation}) => {
           </View>
         </View>
       </View>
-      <FlashMessage ref={flashRef} position="top" />
     </ImageBackground>
   );
 };

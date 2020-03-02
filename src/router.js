@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 
 import Loading from './loading';
 import Login from './modules/sign-in/screens/Login';
@@ -15,8 +15,7 @@ import ListTransaction from './modules/transactions/screens/List';
 const Stack = createStackNavigator();
 
 export default () => {
-
-  const { token } = useSelector(store => store.auth);
+  const {token} = useSelector(store => store.auth);
 
   return (
     <Stack.Navigator

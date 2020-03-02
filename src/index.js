@@ -1,6 +1,7 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {Provider} from 'react-redux';
+import FlashMessage from 'react-native-flash-message';
 import {NavigationContainer} from '@react-navigation/native';
 import {PersistGate} from 'redux-persist/integration/react';
 
@@ -13,6 +14,7 @@ export default () => (
       <NavigationContainer>
         <StatusBar barStyle="dark-content" />
         <Routes />
+        <FlashMessage position="top" duration={3000} />
       </NavigationContainer>
     </PersistGate>
   </Provider>

@@ -7,7 +7,6 @@ import {Button, NavBar} from '~/components';
 import styles from './style';
 
 const Profile = ({navigation}) => {
-
   const dispatch = useDispatch();
 
   const data = [

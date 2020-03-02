@@ -14,14 +14,14 @@ Caso queira consultar a api ela está no repositório: [m-api](https://github.co
 
 Este aplicativo foi criado usando [React Native](https://github.com/facebook/react-native/) e seus testes foram escritos usando [Jest](https://jestjs.io).
 
-## Racional :paperclip
+## Racional :paperclip:
 O desafio foi criar uma aplicação que permita que os usuários adicionem transações, sendo elas de entradas (+) ou de saídas (-).<br/>
 Como foi esperado receber algo que esteja pronto para ir para produção foi adicionado um fluxo básico de autenticação e outras telas comuns para um uso mais fluído.<br/>
 Estou utilizando o Redux para gerenciar o estado da aplicação e o axios para chamadas externas.<br/>
 Apenas o token é armazenado no storage para que a sessão permaneça ativa. <br/>
 Todos os dados inseridos são armazenados no banco de dados.<br/>
 
-## Melhorias :pushpin
+## Melhorias :pushpin:
 Para que o aplicativo possa ter uma melhor experiência as seguintes melhorias serão adotadas.
 
 1. Splash screen

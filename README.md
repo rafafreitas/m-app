@@ -5,7 +5,7 @@ Foi criado uma API que está hospedada no endereço: "http://api.servidordeteste
 Para que o aplicativo funcione tenha certeza que a url não é bloqueada em sua rede.
 
 <p align="center">
-  <img height="400" src="http://api.servidordetestes.pe.hu/uploads/img/login-home.gif0">
+  <img height="400" src="http://api.servidordetestes.pe.hu/uploads/img/login-home.gif">
   <img height="400" src="http://api.servidordetestes.pe.hu/uploads/img/home-transactions.gif">
 </p>
 

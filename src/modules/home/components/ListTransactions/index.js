@@ -1,55 +1,75 @@
-import React from 'react';
-import {View, Text, FlatList} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, ActivityIndicator} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faArrowUp, faArrowDown} from '@fortawesome/free-solid-svg-icons';
+import {TRANSACTIONS_TYPES, codesHttp, messagesHttpError, colors} from '~/constants';
+import {getTransactionsLimit} from '~/services/transactions';
+import {formatAsCurrency} from '~/helpers';
+
 import styles from './style';
 
 const ListTransactions = () => {
-  const data = [
-    {id: '5', date: '26/02/2020', desc: 'Netflix', value: 34.9, input: false},
-    {id: '4', date: '26/02/2020', desc: 'Internet', value: 34.9, input: false},
-    {id: '3', date: '25/02/2020', desc: 'Video Game', value: 34.9, input: true},
-    {id: '2', date: '24/02/2020', desc: 'Aluguel', value: 34.9, input: false},
-    {id: '1', date: '24/02/2020', desc: 'Salário', value: 34.9, input: true}
-  ];
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const Item = ({date, desc, value, input}) => {
-    const state = input ? 'positive' : 'negative';
-    const icon = input ? faArrowUp : faArrowDown;
-    return (
-      <View>
-        <View style={styles.line}>
-          <View style={styles.desc}>
-            <Text style={styles.label}>{date}</Text>
-          </View>
-          <View style={styles.desc}>
-            <Text style={styles.label}>{desc}</Text>
-          </View>
-          <View style={[styles.desc, styles.line]}>
-            <Text style={[styles.amount, styles[state]]}>
-              R$
-              <Text style={[styles.amount, styles[state]]}>{` ${value}`}</Text>
-            </Text>
-            <FontAwesomeIcon icon={icon} size={10} style={styles[state]} />
-          </View>
-        </View>
-        <View style={styles.hr} />
-      </View>
-    );
+  useEffect(() => {
+    list().finally(() => setLoading(false));
+  }, []);
+
+  const list = async () => {
+    setLoading(true);
+    try {
+      const {data} = await getTransactionsLimit(5);
+      setItems(data);
+    } catch (e) {
+      const {status, data} = e.response;
+
+      const msg =
+        status !== codesHttp.INTERNAL_SERVER_ERROR ? data.result : messagesHttpError.DEFAULT;
+
+      setError(msg);
+    }
   };
+
+  const List = () =>
+    items.length !== 0 ? (
+      items.map(elm => {
+        const state = elm.type === TRANSACTIONS_TYPES.input ? 'positive' : 'negative';
+        const icon = TRANSACTIONS_TYPES.input ? faArrowUp : faArrowDown;
+        return (
+          <View key={elm.id.toString()}>
+            <View style={styles.line}>
+              <View style={styles.desc}>
+                <Text style={styles.label}>{elm.create_date}</Text>
+              </View>
+              <View style={styles.desc}>
+                <Text style={styles.label}>{elm.title}</Text>
+              </View>
+              <View style={[styles.desc, styles.line]}>
+                <Text style={[styles.amount, styles[state]]}>
+                  R$
+                  <Text style={[styles.amount, styles[state]]}>{` ${formatAsCurrency(
+                    elm.value
+                  )}`}</Text>
+                </Text>
+                <FontAwesomeIcon icon={icon} size={10} style={styles[state]} />
+              </View>
+            </View>
+            <View style={styles.hr} />
+          </View>
+        );
+      })
+    ) : (
+      <Text style={[styles.label]}>{error || 'Você ainda não possui transações'}</Text>
+    );
 
   return (
     <View style={styles.container}>
       <View style={styles.desc}>
         <Text style={[styles.label, styles.bold]}>Últimas transações</Text>
       </View>
-      <FlatList
-        data={data}
-        renderItem={({item}) => (
-          <Item date={item.date} desc={item.desc} value={item.value} input={item.input} />
-        )}
-        keyExtractor={item => item.id}
-      />
+      {!loading ? <List /> : <ActivityIndicator color={colors.primary} size="large" />}
     </View>
   );
 };

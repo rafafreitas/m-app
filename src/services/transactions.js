@@ -1,7 +1,7 @@
 import http from '../helpers/http';
 
-const getTransactions = async () => http().get(`/transactions`);
+const getTransactionsLimit = async limit => http().get(`/transactions/${limit}`);
 
 const setTransaction = async data => http().post(`/transactions`, {...data});
 
-export {setTransaction, getTransactions};
+export {setTransaction, getTransactionsLimit};

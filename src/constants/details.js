@@ -1,3 +1,6 @@
-const MAX_PASS_LENGTH = 8;
+export const MAX_PASS_LENGTH = 8;
 
-export default MAX_PASS_LENGTH;
+export const TRANSACTIONS_TYPES = {
+  input: 1,
+  output: 2
+};

@@ -57,7 +57,7 @@ const Login = ({navigation}) => {
 
   const hasDisabled = () =>
     email.length === 0 ||
-    password.length === 0 ||
+    password.length !== MAX_PASS_LENGTH ||
     Object.keys(isValid)
       .map(key => isValid[key])
       .includes(false);
@@ -98,7 +98,7 @@ const Login = ({navigation}) => {
               tintColor={colors.white}
               lineWidth={2}
               secureTextEntry
-              maxLength={8}
+              maxLength={MAX_PASS_LENGTH}
               keyboardType="number-pad"
               placeholder="Senha"
               errorText="Senha incorreta"

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
-import {colors, MAX_PASS_LENGTH} from '~/constants';
+import {colors} from '~/constants';
 import {Input, Button, BasePage} from '~/components';
 import {emailIsValid} from '~/helpers';
 
@@ -9,17 +9,13 @@ import styles from './style';
 const EditProfile = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [password] = useState('');
   const [isValid, setIsValid] = useState({
     name: true,
     email: true,
     pass: true,
     cpf: true
   });
-
-  const changePass = text => {
-    if (password.length <= MAX_PASS_LENGTH) setPassword(text);
-  };
 
   const hasDisabled = () =>
     name.length === 0 ||

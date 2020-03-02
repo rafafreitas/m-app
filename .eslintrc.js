@@ -14,6 +14,7 @@ module.exports = {
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'react/prop-types': 'off',
     'react/default-props-match-prop-types': 'off',
+    'no-param-reassign': 'off',
     'comma-dangle': 'off',
     'prettier/prettier': ['error'],
     'no-console': ['error', { allow: ['tron'] }],

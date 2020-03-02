@@ -8,7 +8,7 @@ export default StyleSheet.create({
     marginTop: 20
   },
   logo: {
-    marginTop: 50,
+    marginTop: 50
   },
   label: {
     color: colors.dark,
@@ -18,5 +18,5 @@ export default StyleSheet.create({
   },
   body: {
     flex: 1
-  },
+  }
 });

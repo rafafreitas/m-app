@@ -10,9 +10,9 @@ const Profile = ({navigation}) => {
   const dispatch = useDispatch();
 
   const data = [
-    {id: '1', title: 'Editar perfil', func: () => navigation.navigate('EditProfile')},
-    {id: '2', title: 'Alterar senha', func: () => navigation.navigate('ChangePassword')},
-    {id: '3', title: 'Desativar conta', func: () => navigation.navigate('DeleteAccount')},
+    {id: '1', title: 'Editar perfil', func: () => navigation.navigate('ComingSoon')},
+    {id: '2', title: 'Alterar senha', func: () => navigation.navigate('ComingSoon')},
+    {id: '3', title: 'Desativar conta', func: () => navigation.navigate('ComingSoon')},
     {id: '4', title: 'Sair', func: () => dispatch(logoff())}
   ];
 

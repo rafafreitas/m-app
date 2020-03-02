@@ -9,6 +9,7 @@ import SignUp from './modules/sign-in/screens/SignUp';
 import Home from './modules/home/screens/Home';
 import Profile from './modules/home/screens/Profile';
 import EditProfile from './modules/home/screens/EditProfile';
+import ComingSoon from './modules/home/screens/ComingSoon';
 import CreateTransaction from './modules/transactions/screens/Create';
 import ListTransaction from './modules/transactions/screens/List';
 
@@ -37,6 +38,7 @@ export default () => {
           <Stack.Screen name="EditProfile" component={EditProfile} />
           <Stack.Screen name="CreateTransaction" component={CreateTransaction} />
           <Stack.Screen name="ListTransaction" component={ListTransaction} />
+          <Stack.Screen name="ComingSoon" component={ComingSoon} />
         </>
       )}
     </Stack.Navigator>

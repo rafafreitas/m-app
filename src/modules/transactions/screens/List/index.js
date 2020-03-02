@@ -1,26 +1,48 @@
-import React, {useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, FlatList, ActivityIndicator} from 'react-native';
 import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {showMessage} from 'react-native-flash-message';
 import styles from './style';
 import {BasePage, Tabs} from '~/components';
+import {getTransactionsDetails} from '~/services/transactions';
+import {TRANSACTIONS_TYPES, codesHttp, messagesHttpError, colors} from '~/constants';
+import {formatAsCurrency} from '~/helpers';
 
 const List = () => {
   const [activeTab, setActiveTab] = useState(2);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState([]);
 
   const tabs = [{id: 1, title: 'Anteriores'}, {id: 2, title: 'Hoje'}, {id: 3, title: 'Futuras'}];
 
-  const data = [
-    {id: '5', date: '26/02/2020', desc: 'Netflix', value: 34.9, input: false},
-    {id: '4', date: '26/02/2020', desc: 'Internet', value: 34.9, input: false},
-    {id: '3', date: '25/02/2020', desc: 'Video Game', value: 34.9, input: true},
-    {id: '2', date: '24/02/2020', desc: 'Aluguel', value: 34.9, input: false},
-    {id: '1', date: '24/02/2020', desc: 'Salário', value: 34.9, input: true}
-  ];
+  useEffect(() => {
+    list().finally(() => setLoading(false));
+  }, []);
+
+  const list = async () => {
+    setLoading(true);
+    try {
+      const {data} = await getTransactionsDetails();
+      setItems([data.previous, data.today, []]);
+    } catch (e) {
+      const {status, data} = e.response;
+
+      const msg =
+        status !== codesHttp.INTERNAL_SERVER_ERROR ? data.result : messagesHttpError.DEFAULT;
+
+      showMessage({
+        message: 'Atenção!',
+        description: msg,
+        type: 'warning'
+      });
+    }
+  };
 
   const Item = ({date, desc, value, input}) => {
-    const state = input ? 'positive' : 'negative';
-    const icon = input ? faArrowUp : faArrowDown;
+    const state = input === TRANSACTIONS_TYPES.input ? 'positive' : 'negative';
+    const icon = input === TRANSACTIONS_TYPES.input ? faArrowUp : faArrowDown;
+
     return (
       <View>
         <View style={styles.line}>
@@ -33,7 +55,7 @@ const List = () => {
           <View style={[styles.desc, styles.line]}>
             <Text style={[styles.amount, styles[state]]}>
               R$
-              <Text style={[styles.amount, styles[state]]}>{` ${value}`}</Text>
+              <Text style={[styles.amount, styles[state]]}>{` ${formatAsCurrency(value)}`}</Text>
             </Text>
             <FontAwesomeIcon icon={icon} size={10} style={styles[state]} />
           </View>
@@ -43,17 +65,37 @@ const List = () => {
     );
   };
 
+  const Empty = () => (
+    <>
+      {activeTab !== 3 ? (
+        <Text style={styles.label}>Nenhuma transação para este período</Text>
+      ) : (
+        <Text style={styles.label}>Esta funcionalidade ainda não está habilitada</Text>
+      )}
+    </>
+  );
+
   return (
     <BasePage title="Listagem de transações">
       <Tabs onTabPress={index => setActiveTab(index)} activeTab={activeTab} tabs={tabs} />
       <View style={styles.container}>
-        <FlatList
-          data={data}
-          renderItem={({item}) => (
-            <Item date={item.date} desc={item.desc} value={item.value} input={item.input} />
-          )}
-          keyExtractor={item => item.id}
-        />
+        {!loading ? (
+          <FlatList
+            data={items[activeTab - 1]}
+            ListEmptyComponent={Empty}
+            renderItem={({item}) => (
+              <Item
+                date={item.create_date}
+                desc={item.title}
+                value={item.value}
+                input={item.type}
+              />
+            )}
+            keyExtractor={item => item.id.toString()}
+          />
+        ) : (
+          <ActivityIndicator color={colors.primary} size="large" />
+        )}
       </View>
     </BasePage>
   );

@@ -2,12 +2,11 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faUserEdit} from '@fortawesome/free-solid-svg-icons';
+import {useSelector} from 'react-redux';
 import {colors} from '~/constants';
 import styles from './style';
-import {useSelector} from "react-redux";
 
 const Profile = ({press}) => {
-
   const {userDetails} = useSelector(store => store.auth);
 
   return (

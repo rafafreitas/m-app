@@ -1,4 +1,4 @@
-import { formatAsCurrency, formatCurrencyToFloat } from '../../src/helpers';
+import {formatAsCurrency, formatCurrencyToFloat} from '../../src/helpers';
 
 describe('Currency', () => {
   test('Deve retornar um valor formatado como moeda', () => {

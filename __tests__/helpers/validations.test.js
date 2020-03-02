@@ -1,4 +1,4 @@
-import { onlyLetter } from '../../src/helpers';
+import {onlyLetter} from '../../src/helpers';
 
 describe('onlyLetter', () => {
   const testData = [

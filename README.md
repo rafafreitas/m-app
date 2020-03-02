@@ -75,7 +75,7 @@ Consulte a ``LICENÇA`` para mais informações.
 
 ## Contribuição
 
-1. Fork it (<https://github.com/rafafreitas/m-api>)
+1. Fork it (<https://github.com/rafafreitas/m-app>)
 2. Crie sua feature branch (`git checkout -b feature/fooBar`)
 3. Commit suas mudanças (`git commit -am 'Adicione as mudanças'`)
 4. Faça o Push para a branch (`git push origin feature/branch`)

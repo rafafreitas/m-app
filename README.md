@@ -22,7 +22,7 @@ Apenas o token é armazenado no storage para que a sessão permaneça ativa. <br
 Todos os dados inseridos são armazenados no banco de dados.<br/>
 
 ## Melhorias :pushpin:
-Para que o aplicativo possa ter uma melhor experiência as seguintes melhorias serão adotadas.
+Para que o aplicativo possa ter uma melhor experiência as seguintes melhorias serão adotadas no futuro.
 
 1. Splash screen
 2. Ícone do aplicativo

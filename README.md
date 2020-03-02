@@ -1,12 +1,12 @@
 # Financial_UP :rocket:
 
-​Code Challenge - Mobile (React Native) - Transactions Manager
+​Code Challenge - Mobile (React Native) - Transactions Manager<br/>
 Foi criado uma API que está hospedada no endereço: "http://api.servidordetestes.pe.hu"
 Para que o aplicativo funcione tenha certeza que a url não é bloqueada em sua rede.
 
 <p align="center">
-  <img height="400" src="http://api.servidordetestes.pe.hu/uploads/img/login-home.gif">
-  <img height="400" src="http://api.servidordetestes.pe.hu/uploads/img/home-transactions.gif">
+  <img height="500" src="http://api.servidordetestes.pe.hu/uploads/img/login-home.gif">
+  <img height="500" src="http://api.servidordetestes.pe.hu/uploads/img/home-transactions.gif">
 </p>
 
 Este aplicativo foi criado usando [React Native](https://github.com/facebook/react-native/) e seus testes foram escritos usando [Jest](https://jestjs.io).

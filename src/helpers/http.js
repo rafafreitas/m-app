@@ -12,7 +12,7 @@ const http = () => {
 
   instance.interceptors.request.use(config => {
     config.headers = {'Content-Type': 'application/json'};
-    config.headers.Authorization = `Bearer ${token}`;
+    config.headers.Authorization = `${token}`;
     return config;
   });
 

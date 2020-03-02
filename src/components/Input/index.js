@@ -33,14 +33,19 @@ const Input = props => {
 
   const onChangeText = text => {
     const value = letterOnly ? onlyLetter(text) : text;
-    inputRef.current.setValue(value);
 
     if (mask) {
       const valueMask = MaskService.toMask(mask, value);
       setIsValid(MaskService.isValid(mask, valueMask));
 
+      inputRef.current.setValue(valueMask);
+
       if (onChange) onChange(valueMask, isValid);
-    } else if (onChange) onChange(value);
+      return;
+    }
+    inputRef.current.setValue(value);
+
+    if (onChange) onChange(value);
   };
 
   return (

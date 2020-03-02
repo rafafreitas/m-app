@@ -1,8 +1,11 @@
 # Financial_UP :rocket:
 
 ​Code Challenge - Mobile (React Native) - Transactions Manager<br/>
-Foi criado uma API que está hospedada no endereço: "http://api.servidordetestes.pe.hu"
-Para que o aplicativo funcione tenha certeza que a url não é bloqueada em sua rede.
+Foi criado uma API que está hospedada no endereço: "http://api.servidordetestes.pe.hu"<br/>
+Para que o aplicativo funcione tenha certeza que a url não é bloqueada em sua rede.<br/>
+
+Caso queira consultar a api ela está no repositório: [m-api](https://github.com/rafafreitas/m-api)
+
 
 <p align="center">
   <img height="500" src="http://api.servidordetestes.pe.hu/uploads/img/login-home.gif">
@@ -10,6 +13,21 @@ Para que o aplicativo funcione tenha certeza que a url não é bloqueada em sua 
 </p>
 
 Este aplicativo foi criado usando [React Native](https://github.com/facebook/react-native/) e seus testes foram escritos usando [Jest](https://jestjs.io).
+
+## Racional :paperclip
+O desafio foi criar uma aplicação que permita que os usuários adicionem transações, sendo elas de entradas (+) ou de saídas (-).<br/>
+Como foi esperado receber algo que esteja pronto para ir para produção foi adicionado um fluxo básico de autenticação e outras telas comuns para um uso mais fluído.<br/>
+Estou utilizando o Redux para gerenciar o estado da aplicação e o axios para chamadas externas.<br/>
+Apenas o token é armazenado no storage para que a sessão permaneça ativa. <br/>
+Todos os dados inseridos são armazenados no banco de dados.<br/>
+
+## Melhorias :pushpin
+Para que o aplicativo possa ter uma melhor experiência as seguintes melhorias serão adotadas.
+
+1. Splash screen
+2. Ícone do aplicativo
+3. Remover mock dos resumos e médias das receitas e gastos.
+4. Ativar funcionalidades e remover mocks da tela de perfil.
 
 ## Setup :gear:
 1. Antes de começar, tenha certeza que seu ambiente está pronto para o desenvolvimento React Native, de acordo com as instruções oficiais descritas aqui [https://facebook.github.io/react-native/docs/getting-started.html#content] (https://facebook.github.io/react-native/docs/getting-started.html#content).

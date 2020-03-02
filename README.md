@@ -25,9 +25,10 @@ Todos os dados inseridos são armazenados no banco de dados.<br/>
 Para que o aplicativo possa ter uma melhor experiência as seguintes melhorias serão adotadas no futuro.
 
 1. Splash screen
-2. Ícone do aplicativo
-3. Remover mock dos resumos e médias das receitas e gastos.
-4. Ativar funcionalidades e remover mocks da tela de perfil.
+2. Criação de mais testes unitários
+3. Ícone do aplicativo
+4. Remover mock dos resumos e médias das receitas e gastos.
+5. Ativar funcionalidades e remover mocks da tela de perfil.
 
 ## Setup :gear:
 1. Antes de começar, tenha certeza que seu ambiente está pronto para o desenvolvimento React Native, de acordo com as instruções oficiais descritas aqui [https://facebook.github.io/react-native/docs/getting-started.html#content] (https://facebook.github.io/react-native/docs/getting-started.html#content).
